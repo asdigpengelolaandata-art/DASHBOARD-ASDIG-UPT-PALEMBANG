@@ -1,0 +1,18 @@
+
+<link rel="stylesheet" href="style.css">
+<h2>Login Dashboard PLN</h2>
+<input id="email" placeholder="Email"><br>
+<input id="pass" type="password" placeholder="Password"><br>
+<button onclick="login()">Login</button>
+<script>
+async function login(){
+ const r=await fetch('API_URL/login',{method:'POST',
+ headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({email:email.value,password:pass.value})
+ });
+ const d=await r.json();
+ localStorage.token=d.token;
+ localStorage.role=d.role;
+ location=d.role==='PUSAT'?'executive.html':'dashboard.html';
+}
+</script>

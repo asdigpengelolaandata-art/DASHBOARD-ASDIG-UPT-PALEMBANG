@@ -1,0 +1,9 @@
+
+<link rel="stylesheet" href="style.css">
+<header>Executive Dashboard PLN</header>
+<div id="total"></div>
+<script>
+fetch('API_URL/gangguan',{headers:{Authorization:localStorage.token}})
+.then(r=>r.json())
+.then(d=>total.innerText='Total Gangguan: '+d.length);
+</script>
